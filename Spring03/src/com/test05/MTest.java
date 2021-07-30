@@ -8,10 +8,12 @@ public class MTest {
 		ApplicationContext factory = new
 				ClassPathXmlApplicationContext("com/test05/applicationContext.xml");
 		
-		Developer kim = (Developer)factory.getBean("leess");
+		Developer lee = (Developer)factory.getBean("leess");
 		Engineer hong = (Engineer)factory.getBean("honggd");
 				
-		System.out.println(kim);
+		System.out.println(lee);
 		System.out.println(hong);
 	}
 }
+
+

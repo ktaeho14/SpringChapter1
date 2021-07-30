@@ -10,4 +10,8 @@
 	<!-- c:constructor -->
 	<bean id="lee" class="com.test05.Emp" c:name="이창진" c:salary="3000000"/>
 	<bean id="leess" class="com.test05.Developer" c:emp-ref="lee" c:dept="개발팀"/>
+	
+	<!-- p:property -->
+	<bean id="hong" class="com.test05.Emp" p:name="홍길동" p:salary="2500000"/>
+	<bean id="honggd" class="com.test05.Engineer" p:emp-ref="hong" p:dept="기술팀"/>
 </beans>

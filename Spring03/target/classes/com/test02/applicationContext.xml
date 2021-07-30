@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- bean 2개 설정 -->
+	<!-- name:이순신, salary:2000000 ,id=lee
+		생성자를 사용
+	-->
+		
+	<!-- name:홍길동, salary:2500000 ,id=hong
+		setter를 사용
+	-->
+	
+	<bean id="lee" class="com.test02.Emp">
+		<constructor-arg name="name" value="이순신"></constructor-arg>
+		<constructor-arg name="salary" value="2000000"></constructor-arg>
+	</bean>
+	
+	<bean id="hong" class="com.test02.Emp">
+		<property name="name" value="홍길동"></property>
+		<property name="salary" value="2500000"></property>
+	</bean>
+
+</beans>

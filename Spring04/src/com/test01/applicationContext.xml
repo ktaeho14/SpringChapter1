@@ -31,6 +31,7 @@
 		</property>
 		
 		
+		<!-- 5. public void setArray(String[] arr) 호출 -->
 		<property name="array">
 			<array>
 				<value>이창진</value>
@@ -40,7 +41,77 @@
 			</array>
 			
 		</property>
+		
+		
+		<!-- 6. public void setList(List<String> list) 호출 -->
+		<property name="list">
+			<list>
+				<value>봄</value>
+				<value>여름!!!!</value>
+				<value>가을</value>
+				<value>겨울</value>
+			</list>
+		</property>
+		
+		
+		<!--  7. public void setSet(Set<String> set) 호출  -->
+		<property name="set">
+		<set>
+			<value>1</value>
+			<value>2</value>
+			<value>3</value>
+			<value>3</value>
+		</set>
+		</property>
+		
+		<!-- 8. public void setMap(Map<String,String> map) 호출 -->
+		<property name="map">
+		<!-- 1=봄 2=여름 3=가을 4=겨울 -->
+			<map>
+				<entry>
+					<key><value>1</value></key>
+					<value>봄</value>
+				</entry>
+				<entry>
+					<key><value>2</value></key>
+					<value>여름</value>
+				</entry>
+				<entry key="3">
+					<value>가을</value>
+				</entry>
+				<entry key="4" value="겨울"/>
+					
+				
+			</map>
+			
+		</property>
+		
+		<property name="score">
+			<list>
+				<ref bean="score"/>
+				<bean class="com.test01.Score">
+					<property name="name" value="홍길동"></property>
+					<property name="kor" value="100"></property>
+					<property name="eng" value="30"></property>
+					<property name="math" value="80"></property>
+					
+				</bean>
+			</list>
+		</property>
+		
+		
 	</bean>
+	
+	<bean id="score" class="com.test01.Score">
+		<constructor-arg  value="김수호"/>
+		<constructor-arg  value="90"/>
+		<constructor-arg  value="82"/>
+		<constructor-arg  value="77"/>
+	</bean>
+	
+
+	
+	
 		
 		
 	

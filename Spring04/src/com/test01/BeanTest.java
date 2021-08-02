@@ -1,6 +1,10 @@
 package com.test01;
 
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class BeanTest {
 	public BeanTest() {
@@ -30,6 +34,40 @@ public class BeanTest {
 		}
 		
 	}
+	
+	public void setList(List<String> list) {
+		System.out.println("setList() 호출: ");
+		for(String val : list) {
+			System.out.println(val);
+		}
+	}
+	
+	
+	public void setSet(Set<String> set) {
+		System.out.println("setSet() 호출");
+		for(String val : set) {
+			System.out.println(val);
+		}
+	}
+	
+	
+	public void setMap(Map<String,String> map) {
+		System.out.println("setMap() 호출");
+		Collection<String> values= map.values();
+		
+		for(String val : values) {
+			System.out.println(val);
+		}
+	}
+	
+	
+	public void setScore(List<Score> list) {
+		System.out.println("setScore() 호출");
+		for(Score sc : list) {
+			System.out.println(sc);
+		}
+	}
+	
 	
 	
 }

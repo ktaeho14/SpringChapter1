@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 hello git
+=======
+hello git gitgit
+>>>>>>> parent of eff6282 (update git test2)

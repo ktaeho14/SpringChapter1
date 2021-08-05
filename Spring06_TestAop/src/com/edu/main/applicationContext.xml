@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- width : 3 / height : 5 -->
+	
+	
+	<!-- Rectangle 빈생성 & 생성자를 사용한 value 채워주기 -->
+	<bean id="rect" class="com.edu.entity.Rectangle">
+		<constructor-arg name="title" value="사각형"></constructor-arg>
+		<constructor-arg name="width" value="3"></constructor-arg>
+		<constructor-arg name="height" value="5"> </constructor-arg>
+	</bean>
+	
+	<!-- Triangle 빈생성 & 생성자를 사용한 value 채워주기 -->
+	<bean id="tri" class="com.edu.entity.Triangle">
+		<constructor-arg name="title" value="삼각형"></constructor-arg>
+		<constructor-arg name="width" value="3"></constructor-arg>
+		<constructor-arg name="height" value="5"> </constructor-arg>
+	</bean>
+	
+	
+	
+	<!-- Advisor의 Bean생성 -->
+	<bean id="myAspect" class="com.edu.aop.MyAspect"/>
+	
+	
+	<!-- before와 after메소드를 사용하기 위하여 aop:config설정 -->
+	<aop:config>
+	<!-- aop:aspect를 통하여 Advisor Bean 을 ref속성을 통해 참조 -->
+		<aop:aspect ref="myAspect">
+		
+		<!-- before메소드 지정 및 pointcut설정 -->
+			<aop:before method="before" pointcut="execution(public void *(..))"/>
+		<!-- after메소드 지정 및 pointcut설정 -->
+			<aop:after method="after" pointcut="execution(public void *(..))"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>

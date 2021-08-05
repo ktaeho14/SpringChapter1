@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- width : 3 / height : 5 -->
+	
+	
+	<!-- rect 빈생성 및 생성자를 이용한 value값 채우기 -->
+	<bean id="rect" class="com.edu.entity.Rectangle">
+		<constructor-arg name="title" value="사각형"></constructor-arg>
+		<constructor-arg name="width" value="3"></constructor-arg>
+		<constructor-arg name="height" value="5"></constructor-arg>
+	</bean>
+	
+	<!-- tri 빈생성 및 생성자를 이용한 value값 채우기 -->
+	<bean id="tri" class="com.edu.entity.Triangle">
+		<constructor-arg name="title" value="삼각형"></constructor-arg>
+		<constructor-arg name="width" value="3"></constructor-arg>
+		<constructor-arg name="height" value="5"></constructor-arg>
+	</bean>
+	
+	<!-- aspect 공통관점 빈생성 -->
+	<bean id="myAspect" class="com.edu.aop.MyAspect" />
+	
+	
+	<!-- aop 활용 하기 -->	
+	<aop:config>
+	<!-- aspect에서 공통관점 빈을 참조한다. 공통요소-->
+		<aop:aspect ref="myAspect">
+			<!-- before메소드 aop사용  pointcut을 execution을 이용해 public 리턴타입 메소드명(매개변수타입 변수명)을 주었다.-->
+			<aop:before method="before" pointcut="execution(public void *(..))"/>
+			<aop:after method="after" pointcut="execution(public void *(..))"/>
+		</aop:aspect>
+	</aop:config>
+	
+	
+</beans>

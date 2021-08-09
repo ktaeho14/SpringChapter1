@@ -8,8 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mvc.hello.dto.AddressDto;
 
@@ -38,15 +40,23 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/command.do", method=RequestMethod.GET)
-	public String getCommand(Model model, String name, String addr, String phone) {
+	public String getCommand(Model model, String name, @RequestParam("addr") String address, String phone) {
 		System.out.println(name);
 		
-		model.addAttribute("dto", new AddressDto(name, addr, phone));
+		model.addAttribute("dto", new AddressDto(name, address, phone));
 		
 		
 		return "getcommand";
 	}
 	
+	
+	@RequestMapping(value="command.do",method=RequestMethod.POST)
+	public String postCommand(Model model, @ModelAttribute AddressDto dto) {
+			System.out.println(dto.getName());
+			model.addAttribute("dto",dto);
+			
+		return "postcommand";
+	}
 	
 	
 }

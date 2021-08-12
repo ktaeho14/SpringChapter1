@@ -1,4 +1,22 @@
-해당 repository는 Di iOC 연습을 위한 project git입니다.
-자세한 내용(이론) https://www.notion.so/Spring-a6c7333d310647e5b1b51eb56ff8ae4e 참고바랍니다.
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link href='fullcalendar/main.css' rel='stylesheet' />
+    <script src='fullcalendar/main.js'></script>
+    <script>
 
-해당 파일은 Source Tree를 통하여 업로드
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    </script>
+  </head>
+  <body>
+    <div id='calendar'></div>
+  </body>
+</html>

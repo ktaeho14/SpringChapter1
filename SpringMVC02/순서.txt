@@ -1,0 +1,16 @@
+SpringMVC02
+1.pom.xml : ojdbc6(+repository), mybatis, mybatis-spring, commons-dbcp, spring-orm(Spring Object/Relational Mapping)
+
+2.web.xml : applicationContext.xml,  mapping, encoding filter설정
+
+3./WEB-INF/spring/sqls/test.sql
+
+4.dto, dao, biz, controller
+
+5. src/main/resources/mybatis/board-mapper.xml
+
+6. src/main/resources/mybatis/db.properties (접속관련 계정 내용들)
+
+7. /WEB-INF/spring/sqls/config.xml 생성
+
+8. applicationContext, servlet-context
